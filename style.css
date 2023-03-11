@@ -1,0 +1,37 @@
+body {
+    background-color: #f6f6ec;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.accordeon {
+    width: 80%;
+    margin: 0 auto;
+}
+.accordeon__item {
+}
+.accordeon__title {
+    display: block;
+    cursor: pointer;
+}
+.accordeon__input {
+    /* -webkit-appearance: none;
+    appearance: none; */
+}
+
+.accordeon__input:checked + .accordeon__img {
+    display: block;
+}
+.accordeon__img {
+    /* background: url(../cssBayan/assets/end-stage2.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 50%; */
+    display: none;
+}
+.item_img {
+    /* display: block; */
+    width: 100%;
+}
