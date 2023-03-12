@@ -30,29 +30,51 @@ body {
 } */
 
 .accordeon__title {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
     border-top: 0.07em solid #d2d9e2;
     padding: 1em 0 0.5em;
     cursor: pointer;
     color: #0059d9;
 }
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .cross {
     width: 1em;
     height: 1em;
     transform: rotate(45deg);
+    transition: transform 0.2s ease-out;
+    color: black;
 }
+/* .cross span {
+    display: block;
+    width: 10px;
+    height: 2px;
+    background-color: #000000;
+}
+.span_1 {
+    transform: translate(13%, 370%);
+}
+.span_2 {
+    transform: rotate(90deg);
+} */
+
 .accordeon__input {
     -webkit-appearance: none;
     appearance: none;
 }
 
 .accordeon__img {
-    display: none;
-    width: 80%;
+    /* display: none; */
+    opacity: 0;
+    /* height: 0; */
+    width: 0;
     margin: 0 auto;
-    transition: all 1s ease-out;
+    
 }
 .item_img {
     width: 100%;
@@ -64,22 +86,28 @@ body {
 .accordeon__input:checked ~ .accordeon__title .cross {
     transform: rotate(0deg);
 }
-.accordeon__input:checked ~ .accordeon__img {
-    display: block;
+.accordeon__input:checked ~ .accordeon__title .accordeon__img {
+    /* display: block; */
+    opacity: 1;
+    width: 60%;
+}
+footer {
+    height: 15em;
 }
 
 /* --- tablet --- */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
 
     header {
-        max-width: 50%;
+        max-width: 60%;
         margin: 3em auto 0;
+        font-size: 125%;
     }    
     body {
         font-size: 125%;
     }
     .accordeon {
-        max-width: 50%;
+        max-width: 60%;
     }
 }
 
@@ -87,25 +115,39 @@ body {
 @media screen and (min-width: 1280px){
 
     header {
-        max-width: 50%;
+        max-width: 40%;
         margin: 3em auto 0;
+        font-size: 150%;
     }
     body {
-        font-size: 100%;
+        font-size: 150%;
     }
     .accordeon {
-        max-width: 50%;
+        max-width: 40%;
     }
     .cross {
         display: none;
     }
     .accordeon:hover .cross {
         display: block;
+        color: black;
     }
     .accordeon:hover .accordeon__title {
         color: #000000;
     }
-    .accordeon__title:hover ~ .accordeon__img {
-        display: block;
+    .accordeon__title:hover .accordeon__img {
+        /* display: block; */
+        opacity: 1;
+        width: 60%;
+        transition: all 0.2s ease-out;
+    }
+    .accordeon__title:hover .cross {
+        transform: rotate(0deg);
+    }
+    .accordeon__title:active .title_text, .cross{
+        color: #0059d9;
+    }
+    .accordeon__title:active .cross{
+        color: blue;
     }
 }
