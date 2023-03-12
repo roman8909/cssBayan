@@ -1,5 +1,12 @@
+header {
+    font-weight: 900;
+    width: 80%;
+    margin: 2em auto 0;
+}
+
 body {
     background-color: #f6f6ec;
+    font-size: 160%;
 }
 
 * {
@@ -12,26 +19,93 @@ body {
 }
 .accordeon__item {
 }
-.accordeon__title {
-    display: block;
+
+/* .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.07em solid #d2d9e2;
+    padding: 1em 0 0.5em;
     cursor: pointer;
+} */
+
+.accordeon__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.07em solid #d2d9e2;
+    padding: 1em 0 0.5em;
+    cursor: pointer;
+    color: #0059d9;
+}
+.cross {
+    width: 1em;
+    height: 1em;
+    transform: rotate(45deg);
 }
 .accordeon__input {
-    /* -webkit-appearance: none;
-    appearance: none; */
+    -webkit-appearance: none;
+    appearance: none;
 }
 
-.accordeon__input:checked + .accordeon__img {
-    display: block;
-}
 .accordeon__img {
-    /* background: url(../cssBayan/assets/end-stage2.jpeg);
-    background-size: cover;
-    background-position: center;
-    height: 50%; */
     display: none;
+    width: 80%;
+    margin: 0 auto;
+    transition: all 1s ease-out;
 }
 .item_img {
-    /* display: block; */
     width: 100%;
+}
+
+.accordeon__input:checked ~ .accordeon__title {
+    color: #000000;
+}
+.accordeon__input:checked ~ .accordeon__title .cross {
+    transform: rotate(0deg);
+}
+.accordeon__input:checked ~ .accordeon__img {
+    display: block;
+}
+
+/* --- tablet --- */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+
+    header {
+        max-width: 50%;
+        margin: 3em auto 0;
+    }    
+    body {
+        font-size: 125%;
+    }
+    .accordeon {
+        max-width: 50%;
+    }
+}
+
+/* --- desktop --- */
+@media screen and (min-width: 1280px){
+
+    header {
+        max-width: 50%;
+        margin: 3em auto 0;
+    }
+    body {
+        font-size: 100%;
+    }
+    .accordeon {
+        max-width: 50%;
+    }
+    .cross {
+        display: none;
+    }
+    .accordeon:hover .cross {
+        display: block;
+    }
+    .accordeon:hover .accordeon__title {
+        color: #000000;
+    }
+    .accordeon__title:hover ~ .accordeon__img {
+        display: block;
+    }
 }
